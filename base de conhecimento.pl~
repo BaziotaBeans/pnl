@@ -1,0 +1,47 @@
+/*
+	Autor: Baziota Beans
+	Data: 02/11/2019
+	Hora: 06:35 PM
+	Objectivo: Base de Conhecimento para processamento da DCGs.
+*/
+
+
+:- discontiguous classe/2.
+:- discontiguous artigo/3.
+:- discontiguous substantivo/3.
+:- discontiguous verbo/3.
+:- discontiguous pergunta/3.
+
+
+/*-----------------------------------------------------------------------
+					NÃ³s nÃ£o terminais / Estados NÃ£o Terminais
+-----------------------------------------------------------------------*/
+frase(frase(S,P)) --> sujeito(S), predicado(P).
+sujeito(sujeito(A,S)) --> artigo(A), substantivo(S).
+predicado(predicado(V,A,S)) --> verbo(V), artigo(A), substantivo(S).
+/*-----------------------------------------------------------------------
+					NÃ³s terminais / Estados Terminais
+-----------------------------------------------------------------------*/
+substantivo(substantivo(gato)) --> [gato].
+substantivo(substantivo(rato)) --> [rato].
+artigo(artigo(o)) --> [o].
+verbo(verbo(caçou)) --> [caçou].
+
+
+classe --> [artigo].
+classe --> [substantivo].
+classe --> [verbo].
+
+pergunta('fábio') -->['de quem a jurema gosta?'].
+pergunta('jurema') -->['de quem o fábio gosta?'].
+substantivo(substantivo(ana)) --> [ana].
+verbo(verbo(come)) --> [come].
+substantivo(substantivo(feijão)) --> [feijão].
+substantivo(substantivo(julio)) --> [julio].
+verbo(verbo(ama)) --> [ama].
+substantivo(substantivo(luanda)) --> [luanda].
+pergunta('fábio') --> ['de quem a emma gosta?'].
+artigo(artigo(a)) --> [a].
+substantivo(substantivo(emma)) --> [emma].
+artigo(artigo(é)) --> [é].
+substantivo(substantivo(linda)) --> [linda].
